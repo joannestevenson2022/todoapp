@@ -2,7 +2,8 @@
 
 // ----------- GLOBAL VARIABLES // -----------
 
-const url = "http://localhost:3000";
+//const url = "http://localhost:3000";
+const url = "https://todoapp-0dwk.onrender.com";
 const taskForm = document.getElementById("taskForm");
 const toDoList = document.getElementById("toDoList");
 const completedList = document.getElementById("completedList");
@@ -73,10 +74,10 @@ taskForm.addEventListener("submit", (event) => {
         async () => {
           await editTask(task.id);
           bootstrap.Modal.getInstance(
-            document.getElementById("editModal")
+            document.getElementById("editModal"),
           ).hide();
         },
-        { once: true }
+        { once: true },
       );
     }
   });
@@ -120,8 +121,8 @@ async function displayTasks() {
          </div>
             <p class="${done}">${task.description}</p>
             <p class="${done}"><strong>Due: </strong>${new Date(
-        task.dueDate
-      ).toLocaleDateString()}</p>
+              task.dueDate,
+            ).toLocaleDateString()}</p>
             <div class="d-flex justify-content-between align-items-end">
         <div>
         ${
@@ -134,8 +135,8 @@ async function displayTasks() {
         }
         </div>
         <p class="m-0 ${done}"><strong>Created on: </strong>${new Date(
-        task.dateCreated
-      ).toLocaleDateString()}</p>
+          task.dateCreated,
+        ).toLocaleDateString()}</p>
         </div>`;
       return li; //exit function and use it
     }
@@ -227,7 +228,7 @@ async function taskNotComplete(taskId) {
 
     if (!response.ok) {
       throw new Error(
-        `Failed to make the task not complete: ${response.status}`
+        `Failed to make the task not complete: ${response.status}`,
       );
     }
 
