@@ -12,7 +12,13 @@ const port = process.env.PORT || 3000; //Uses port number on device to serve the
 // -------------------------------- ↓ MIDDLEWARE SETUP ↓ -----------------------------------
 app.use(express.json());
 
-app.use(cors("*")); //don't ever enable this in Live sites, it's purely for testing - it allows all sites to access the server
+const corsOptions = {
+  origin: "https://todoapp-puce-three.vercel.app",
+  methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
+  credentials: true,
+};
+
+app.use(cors(corsOptions)); //don't ever enable this in Live sites, it's purely for testing - it allows all sites to access the server
 
 // -------------------------------- ↓ DATABASE CONNECTION AND APP STARTUP ↓ -----------------------------------
 
