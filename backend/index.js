@@ -5,6 +5,7 @@ const cors = require("cors"); //Enables cross origin resource sharing (Access to
 const mongoose = require("mongoose"); //Enables us to connect and interact with the database
 
 // ---------------------------- ↓ INITIAL APP CONFIGURATION ↓ -----------------------------
+console.log(process.env.MONGO_URI);
 const app = express(); //Using express.js to power our application/server
 const port = process.env.PORT || 3000; //Uses port number on device to serve the backend
 
@@ -119,7 +120,7 @@ app.patch("/api/tasks/complete/:id", async (req, res) => {
     const completedTask = await Task.findByIdAndUpdate(
       taskId,
       { completed },
-      { new: true }
+      { new: true },
     );
 
     if (!completedTask) {
@@ -142,7 +143,7 @@ app.patch("/api/tasks/notComplete/:id", async (req, res) => {
     const taskNotComplete = await Task.findByIdAndUpdate(
       taskId,
       { completed },
-      { new: true }
+      { new: true },
     );
 
     if (!taskNotComplete) {

@@ -1,7 +1,7 @@
 // ----------- OBJECTS // -----------
 
 // ----------- GLOBAL VARIABLES // -----------
-const url = "https://todoapp-0dwk.onrender.com:3000";
+const url = "https://todoapp-0dwk.onrender.com";
 //const url = "http://localhost:3000";
 const taskForm = document.getElementById("taskForm");
 const toDoList = document.getElementById("toDoList");
